@@ -1,4 +1,4 @@
-const Notes = require('../models/notes');
+const Notes = require('../models/notesModel');
 
 const updateHandler = async (req, res) => {
     try {
@@ -17,3 +17,5 @@ const updateHandler = async (req, res) => {
         res.status(400).send({ error: 'Error updating note' });
     }
 }
+
+module.exports = updateHandler;

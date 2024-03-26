@@ -6,6 +6,8 @@ const app = express();
 connect();    // Connect to MongoDB
 
 app.use(express.json());
+
+app.get('/', (req, res) => res.sendFile('./views/index.html'))
 app.use('/notes',notesRouter);
 
 

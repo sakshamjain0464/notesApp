@@ -8,6 +8,8 @@ const addNotesHandler = require('../controllers/addNotes');
 
 const deleteHandler = require('../controllers/deleteNotes');
 
+const updateHandler = require('../controllers/updateHandler');
+
 router.get('/', async (req, res) => {
     try {
         const notes = await Notes.find();
@@ -21,5 +23,7 @@ router.get('/', async (req, res) => {
 router.post('/addNotes', addNotesHandler);  // Add a new note
 
 router.delete('/deleteNotes/:id', deleteHandler); // Delete a note
+
+router.put('/updateNotes/:id', updateHandler);
 
 module.exports = router;  // Export the router

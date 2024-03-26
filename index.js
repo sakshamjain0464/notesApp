@@ -10,7 +10,8 @@ app.use(express.json());
 app.get('/', (req, res) => res.sendFile('./views/index.html'))
 app.use('/notes',notesRouter);
 
+PORT = process.env.PORT || 3000;
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log('Server is running on port 3000');
 });

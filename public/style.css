@@ -1,0 +1,149 @@
+
+/* Custom Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+form {
+    margin-top: 20px;
+    width: 60%;
+    margin: auto;
+    flex-direction: column;
+    display: flex;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    height: 100px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin: auto;
+    cursor: pointer;
+}
+
+#notesSection {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+/* Custom Colors */
+.note {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.note-title {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.note-content {
+    color: #666;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    form {
+        width: 95%;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+
+    button[type="submit"] {
+        padding: 5px 10px;
+    }
+
+    #notesSection {
+        margin-top: 10px;
+        padding: 10px;
+    }
+}
+.edit-button,
+.delete-button {
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+    background-color: #555;
+}
+
+#editModal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content{
+    height: fit-content;
+    max-height: 60%;
+    padding: 30px;
+    width: 60%;
+    background-color: white;
+}
+
+.modal-content > h2{
+    text-align: center ;
+}
+
+.modal-content > span{
+    font-size: 40px;
+    cursor: pointer;
+}

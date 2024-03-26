@@ -3,12 +3,12 @@ const connect = require('./connect');
 const Notes = require('./models/notesModel');
 const notesRouter = require('./routes/notesRouter');
 const app = express();
-connect();    // Connect to MongoDB
+// connect();    // Connect to MongoDB
 
-app.use(express.json());
+// app.use(express.json());
 
 app.get('/', (req, res) => res.sendFile('./views/index.html'))
-app.use('/notes',notesRouter);
+// app.use('/notes',notesRouter);
 
 PORT = process.env.PORT || 3000;
 

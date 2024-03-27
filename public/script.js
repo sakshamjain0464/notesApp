@@ -4,6 +4,7 @@ let data = [];
 
 function populateNotes(data){
     notesSection.innerHTML = '';
+    if(data.length === 0)  notesSection.innerHTML = '<h2>No notes available</h2>';
     data.forEach((item, index) => {
         const note = document.createElement('div');
         note.className = 'note';
@@ -55,7 +56,7 @@ async function addNewNote(e){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
-    }).then(response => response.json()).then(response => alert("Added")).catch(err => alert("Error adding note"));
+    }).then(response => response.json()).then(response => showAlert("Note added successfully", 'success')).catch(err => showAlert("Error adding note", 'error' ));
 
     title.value = '';
     content.value = '';
@@ -70,7 +71,7 @@ async function deleteNote(e){
 
     const response = await fetch(`/notes/deleteNotes/${id}`, {
         method: 'DELETE'
-    }).then(response => response.json()).then(response => alert("Deleted")).catch(err => alert("Error deleting note"));
+    }).then(response => response.json()).then(response => showAlert('Note Deleted successfully', 'success')).catch(err => showAlert('Error deleting note', 'error'));
 
     populateNotes(data.filter((item, i) => i !== index));
 }
@@ -106,7 +107,7 @@ async function saveNote(e){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
-    }).then(response => response.json()).then(response => alert("Updated")).catch(err => alert("Error updating note"));
+    }).then(response => response.json()).then(response => showAlert('Note Saved successfully', 'success')).catch(err => showAlert('Error saving note', 'error'));
 
     editModal.style.display = 'none';
 
@@ -117,4 +118,14 @@ saveBtn.addEventListener('click', saveNote)
 
 function closeModal(){
     editModal.style.display = 'none';
+}
+
+const alertBox = document.getElementById('alertContainer');
+function showAlert(message, type){
+    alertBox.innerHTML = `<div class="">${message}</div>`;
+    alertBox.style.backgroundColor = type === 'error' ? 'red' : 'green';
+    alertBox.style.display = 'flex';
+    setTimeout(() => {
+        alertBox.style.display = 'none';
+    }, 3000);
 }
